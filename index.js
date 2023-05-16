@@ -17,20 +17,24 @@ const connection = mysql.createConnection({
 // Middleware pour prendre en charge les requêtes JSON
 app.use(express.json());
 
-// Route POST pour rechercher les titres correspondant aux lettres fournies
+// Route POST pour rechercher les titres qui commencent par les lettres fournies
 app.post('/search', async (req, res) => {
-  const letters = req.body.letters;
-  const query = `SELECT title FROM websites WHERE title LIKE '%${letters}%'`;
-
-  connection.query(query, (error, results) => {
-    if (error) {
-      console.error('Erreur lors de la recherche:', error);
-      res.status(500).json({ error: 'Une erreur s\'est produite lors de la recherche.' });
-    } else {
-      const titles = results.map(result => result.title);
-      res.json({ titles });
-    }
-  });
+    const letters = req.body.letters;
+    const query = `SELECT id, title, description FROM websites WHERE title LIKE '${letters}%'`;
+  
+    connection.query(query, (error, results) => {
+      if (error) {
+        console.error('Erreur lors de la recherche:', error);
+        res.status(500).json({ error: 'Une erreur s\'est produite lors de la recherche.' });
+      } else {
+        const titles = results.map(result => ({
+          id: result.id,
+          title: result.title,
+          details: result.description
+        }));
+        res.json({ titles });
+      }
+    });
 });
 
 // Démarrage du serveur
