@@ -2,8 +2,8 @@
 <br>
 - [x]  Scraper une liste de website à partir du fichier `listeWebSite.js` <br>
 - [x]  Extraire les informations des sites webs <br>
-    - [x] Titre <br>
-    - [x] Description <br>
+    -> Titre <br>
+    -> Description <br>
 - [x]  Enregistrer les données dans une base de données MySQL <br>
 - [x]  Déployer une route `/search` pour la recherche  <br>
 
