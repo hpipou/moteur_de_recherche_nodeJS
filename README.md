@@ -1,20 +1,20 @@
 ## MOTEUR DE RECHERCHE:
 <br>
-- [x]  Scraper une liste de website à partir du fichier `listeWebSite.js` 
-- [x]  Extraire les informations des sites webs
-  - [x] Titre
-  - [x] Description
-- [x]  Enregistrer les données dans une base de données MySQL
-- [x]  Déployer une route `/search` pour la recherche  
+- [x]  Scraper une liste de website à partir du fichier `listeWebSite.js` <br>
+- [x]  Extraire les informations des sites webs <br>
+    - [x] Titre <br>
+    - [x] Description <br>
+- [x]  Enregistrer les données dans une base de données MySQL <br>
+- [x]  Déployer une route `/search` pour la recherche  <br>
 
 <br>
 ## NPM PACKAGE
 <br>
-- [x]  axios
-- [x]  cheerio
-- [x]  dotenv
-- [x]  express
-- [x]  mysql
+- [x]  axios <br>
+- [x]  cheerio <br>
+- [x]  dotenv <br>
+- [x]  express <br>
+- [x]  mysql <br>
 
 <br>
 ## LANCER LE SCRAPING : `node scrapinWebSite.js`
