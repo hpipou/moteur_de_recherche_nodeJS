@@ -20,7 +20,7 @@ app.use(express.json());
 // Route POST pour rechercher les titres qui commencent par les lettres fournies
 app.post('/search', async (req, res) => {
     const letters = req.body.letters;
-    const query = `SELECT id, title, description FROM websites WHERE title LIKE '${letters}%'`;
+    const query = `SELECT id, title, description, websitelink FROM websites WHERE title LIKE '${letters}%'`;
   
     connection.query(query, (error, results) => {
       if (error) {
@@ -30,7 +30,8 @@ app.post('/search', async (req, res) => {
         const titles = results.map(result => ({
           id: result.id,
           title: result.title,
-          details: result.description
+          description: result.description,
+          websitelink : result.websitelink
         }));
         res.json({ titles });
       }

@@ -21,8 +21,9 @@ async function scrapeWebsite(website) {
 
     const title = $('title').text();
     const description = $('meta[name="description"]').attr('content');
+    const websitelink = website
 
-    return { title, description };
+    return { title, description, websitelink };
   } catch (error) {
     console.error(`Erreur lors du web scraping de ${website}`);
     return null;
@@ -35,9 +36,9 @@ function insertData(websiteData) {
     return;
   }
 
-  const { title, description } = websiteData;
-  const query = 'INSERT INTO websites (title, description) VALUES (?, ?)';
-  connection.query(query, [title, description], (error) => {
+  const { title, description, websitelink } = websiteData;
+  const query = 'INSERT INTO websites (title, description, websitelink) VALUES (?, ?, ?)';
+  connection.query(query, [title, description, websitelink], (error) => {
     if (error) {
       console.error('Une erreur s est produite dans la BDD');
     }
